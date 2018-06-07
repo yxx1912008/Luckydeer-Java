@@ -18,4 +18,5 @@
 		<version>20180605-baseaction</version>
 	</dependency>
 </dependencies>
+	<description>Web层 等同于controller层</description>
 </project>
