@@ -19,6 +19,11 @@
 			<version>20180605-dao</version>
 		</dependency>
 
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-movie-intergration</artifactId>
+			<version>20180605-intergration</version>
+		</dependency>
 
 	</dependencies>
 
