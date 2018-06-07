@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.luckydeer</groupId>
+		<artifactId>luckydeer-parent</artifactId>
+		<version>20180605</version>
+	</parent>
+	<artifactId>luckydeer-movie-intergration</artifactId>
+	<version>20180605-intergration</version>
+	<name>luckydeer-movie-intergration</name>
+	<description>远程服务引入层</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-movie-common</artifactId>
+			<version>20180605-common</version>
+		</dependency>
+	</dependencies>
+</project>
