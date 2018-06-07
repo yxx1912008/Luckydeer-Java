@@ -1,3 +1,7 @@
 #Eclipse文件
 .project
 *.log
+.settings
+.classpath
+.project
+target
