@@ -12,6 +12,7 @@
 	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
 	<dubbo:protocol name="dubbo" port="20880" />
+	
 	<!-- 开放的服务 接口 -->
 	<dubbo:service interface="cn.luckydeer.note.facade.note.NoteInfoService"
 		ref="noteInfoService" />
