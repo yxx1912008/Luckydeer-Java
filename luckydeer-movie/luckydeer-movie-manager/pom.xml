@@ -13,12 +13,12 @@
 
 	<dependencies>
 
-	<dependency>
-		<groupId>cn.luckydeer</groupId>
-		<artifactId>luckydeer-movie-dao</artifactId>
-		<version>20180605-dao</version>
-	</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-movie-dao</artifactId>
+			<version>20180605-dao</version>
+		</dependency>
 
+	</dependencies>
 
 </project>

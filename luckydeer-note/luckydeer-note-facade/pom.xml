@@ -17,6 +17,11 @@
 			<artifactId>luckydeer-note-model</artifactId>
 			<version>20180605-model</version>
 		</dependency>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-common</artifactId>
+			<version>20180605-main-common</version>
+		</dependency>
 	</dependencies>
 
 </project>

@@ -8,9 +8,9 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd"
 	default-autowire="byName">
 
-	<bean id="movieInfoServiceClient"
-		class="cn.luckydeer.note.integration.movie.MovieInfoServiceClient">
-		<property name="movieService" ref="movieService"></property>
+	<bean id="noteInfoServiceClient"
+		class="cn.luckydeer.movie.integration.note.NoteInfoServiceClient">
+		<property name="noteInfoService" ref="noteInfoService"></property>
 	</bean>
 
 </beans>

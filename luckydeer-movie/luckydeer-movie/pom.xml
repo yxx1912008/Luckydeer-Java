@@ -12,16 +12,16 @@
 	<version>20180605-movie</version>
 
 	<dependencies>
-	<dependency>
-		<groupId>cn.luckydeer</groupId>
-		<artifactId>luckydeer-movie-web</artifactId>
-		<version>20180605-web</version>
-	</dependency>
-	<dependency>
-		<groupId>cn.luckydeer</groupId>
-		<artifactId>luckydeer-movie-service</artifactId>
-		<version>20180605-service</version>
-	</dependency>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-movie-web</artifactId>
+			<version>20180605-web</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-movie-service</artifactId>
+			<version>20180605-service</version>
+		</dependency>
 	</dependencies>
 
 

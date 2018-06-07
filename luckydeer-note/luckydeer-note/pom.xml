@@ -17,5 +17,10 @@
 			<artifactId>luckydeer-note-web</artifactId>
 			<version>20180605-web</version>
 		</dependency>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-note-service</artifactId>
+			<version>20180605-service</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -17,5 +17,15 @@
 			<artifactId>luckydeer-movie-common</artifactId>
 			<version>20180605-common</version>
 		</dependency>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-note-model</artifactId>
+			<version>20180605-model</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-note-facade</artifactId>
+			<version>20180605-facade</version>
+		</dependency>
 	</dependencies>
 </project>
