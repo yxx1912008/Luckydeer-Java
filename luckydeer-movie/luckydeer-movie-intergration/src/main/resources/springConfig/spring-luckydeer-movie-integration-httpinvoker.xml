@@ -9,8 +9,7 @@
 	<!-- <dubbo:application name="movieServiceClient" /> -->
 
 	<!-- 远程服务服务地址 -->
-	<dubbo:registry protocol="zookeeper"
-		address="zookeeper://192.168.18.124:2181" />
+	<dubbo:registry address="zookeeper://192.168.18.124:2181" />
 
 
 	<!-- 生成远程服务代理，可以和本地bean一样使用 -->
