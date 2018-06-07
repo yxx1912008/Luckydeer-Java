@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.luckydeer</groupId>
+		<artifactId>luckydeer-parent</artifactId>
+		<version>20180605</version>
+	</parent>
+	<artifactId>luckydeer-movie-dao</artifactId>
+	<name>luckydeer-movie-dao</name>
+	<description>数据库操作</description>
+	<version>20180605-dao</version>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-movie-common</artifactId>
+			<version>20180605-common</version>
+		</dependency>
+	</dependencies>
+
+
+
+</project>
