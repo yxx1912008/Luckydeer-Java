@@ -34,7 +34,7 @@ public class MovieInfoController {
      * @return
      * @author yuanxx @date 2018年6月5日
      */
-    @RequestMapping(value = "/getMovieInfo",produces={"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/getMovieInfo", produces = { "application/json;charset=UTF-8" })
     @ResponseBody
     public String getMovieInfo(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("进来了");
