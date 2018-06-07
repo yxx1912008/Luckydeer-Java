@@ -5,11 +5,15 @@ import java.util.List;
 
 import cn.luckydeer.movie.dao.movie.daoInterface.IMovieInfoDao;
 import cn.luckydeer.movie.dao.movie.dataobject.MovieInfoDo;
+import cn.luckydeer.movie.integration.note.NoteInfoServiceClient;
 import cn.luckydeer.movie.model.model.MovieInfoModel;
+import cn.luckydeer.note.model.note.NoteInfoModel;
 
 public class MovieInfoManager {
 
-    private IMovieInfoDao movieInfoDao;
+    private IMovieInfoDao         movieInfoDao;
+
+    private NoteInfoServiceClient noteInfoServiceClient;
 
     /**
      * 
@@ -39,6 +43,16 @@ public class MovieInfoManager {
         return listResult;
     }
 
+    /**
+     * 
+     * 注解：通过远程服务 调用 note系统
+     * @return
+     * @author yuanxx @date 2018年6月7日
+     */
+    public List<NoteInfoModel> selectAllNoteInfoModel() {
+        return noteInfoServiceClient.selectAllNoteInfoModel();
+    }
+
     private MovieInfoModel convert(MovieInfoDo movieInfoDo) {
         MovieInfoModel movieInfoModel = null;
         if (null != movieInfoDo) {
@@ -52,6 +66,10 @@ public class MovieInfoManager {
 
     public void setMovieInfoDao(IMovieInfoDao movieInfoDao) {
         this.movieInfoDao = movieInfoDao;
+    }
+
+    public void setNoteInfoServiceClient(NoteInfoServiceClient noteInfoServiceClient) {
+        this.noteInfoServiceClient = noteInfoServiceClient;
     }
 
 }

@@ -37,7 +37,13 @@ public class MovieInfoController {
     @RequestMapping(value = "/getMovieInfo", produces = { "application/json;charset=UTF-8" })
     @ResponseBody
     public String getMovieInfo(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("进来了");
+        List<MovieInfoDo> list = movieInfoManager.getAllMovieInfo();
+        return JSON.toJSON(list).toString();
+    }
+
+    @RequestMapping(value = "/getNoteInfo", produces = { "application/json;charset=UTF-8" })
+    @ResponseBody
+    public String getNoteInfo(HttpServletRequest request, HttpServletResponse response) {
         List<MovieInfoDo> list = movieInfoManager.getAllMovieInfo();
         return JSON.toJSON(list).toString();
     }
