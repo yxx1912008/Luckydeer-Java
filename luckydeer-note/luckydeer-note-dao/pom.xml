@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.luckydeer</groupId>
+		<artifactId>luckydeer-parent</artifactId>
+		<version>20180605</version>
+	</parent>
+	<artifactId>luckydeer-note-dao</artifactId>
+	<version>20180605-dao</version>
+	<name>luckydeer-note-dao</name>
+	<description>数据层</description>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-note-common</artifactId>
+			<version>201806-common</version>
+		</dependency>
+	</dependencies>
+</project>
