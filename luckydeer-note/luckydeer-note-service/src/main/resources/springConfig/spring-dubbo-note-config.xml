@@ -8,9 +8,9 @@
 	<dubbo:application name="noteInfoService" />
 
 	<!-- 广播地址 端口 -->
-	<dubbo:registry address="zookeeper://192.168.18.124:2181" />
+	<dubbo:registry address="zookeeper://192.168.18.124:2182" />
 
-	<dubbo:protocol name="dubbo" port="20880" />
+	<dubbo:protocol name="dubbo" port="20881" />
 
 	<!-- 开放的服务 接口 -->
 	<dubbo:service interface="cn.luckydeer.note.facade.note.NoteInfoService"
