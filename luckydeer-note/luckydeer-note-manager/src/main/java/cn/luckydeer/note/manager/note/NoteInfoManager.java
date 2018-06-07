@@ -1,11 +1,13 @@
 package cn.luckydeer.note.manager.note;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.luckydeer.movie.model.model.MovieInfoModel;
 import cn.luckydeer.note.dao.note.dataInterface.INoteInfoDao;
 import cn.luckydeer.note.dao.note.dataobject.NoteInfoDo;
 import cn.luckydeer.note.integration.movie.MovieInfoServiceClient;
+import cn.luckydeer.note.model.note.NoteInfoModel;
 
 /**
  * 
@@ -37,6 +39,40 @@ public class NoteInfoManager {
      */
     public List<MovieInfoModel> selectFromService() {
         return movieInfoServiceClient.selectAll();
+    }
+
+    /**
+     * 
+     * 注解：获取远程服务所需要的 笔记信息列表
+     * @return
+     * @author yuanxx @date 2018年6月7日
+     */
+    public List<NoteInfoModel> selectNoteInfoForService() {
+        List<NoteInfoDo> list = noteInfoDao.selectAll();
+        List<NoteInfoModel> listResult = new ArrayList<>();
+        for (NoteInfoDo noteInfoDo : list) {
+            if (null != convert(noteInfoDo)) {
+                listResult.add(convert(noteInfoDo));
+            }
+        }
+        return listResult;
+    }
+
+    /**
+     * 
+     * 注解：将NoteInfoDo 转换为 NoteInfoModel
+     * @param noteInfoDo
+     * @return
+     * @author yuanxx @date 2018年6月7日
+     */
+    private NoteInfoModel convert(NoteInfoDo noteInfoDo) {
+        NoteInfoModel noteInfoModel = null;
+        if (null != noteInfoDo) {
+            noteInfoModel = new NoteInfoModel();
+            noteInfoModel.setId(noteInfoDo.getId());
+            noteInfoModel.setName(noteInfoDo.getName());
+        }
+        return noteInfoModel;
     }
 
     public void setNoteInfoDao(INoteInfoDao noteInfoDao) {
