@@ -3,6 +3,7 @@ package cn.luckydeer.note.service.note;
 import java.util.List;
 
 import cn.luckydeer.note.facade.note.NoteInfoService;
+import cn.luckydeer.note.manager.note.NoteInfoManager;
 import cn.luckydeer.note.model.note.NoteInfoModel;
 
 /**
@@ -13,9 +14,18 @@ import cn.luckydeer.note.model.note.NoteInfoModel;
  */
 public class NoteInfoServiceImpl implements NoteInfoService {
 
+    private NoteInfoManager noteInfoManager;
+
+    /**
+     * @see cn.luckydeer.note.facade.note.NoteInfoService#selectAll()
+     */
     @Override
     public List<NoteInfoModel> selectAll() {
-        return null;
+        return noteInfoManager.selectNoteInfoForService();
+    }
+
+    public void setNoteInfoManager(NoteInfoManager noteInfoManager) {
+        this.noteInfoManager = noteInfoManager;
     }
 
 }
