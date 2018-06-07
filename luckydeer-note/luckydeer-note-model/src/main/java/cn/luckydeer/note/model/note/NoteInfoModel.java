@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author yuanxx
  * @version $Id: NoteInfo.java, v 0.1 2018年6月7日 上午10:59:36 yuanxx Exp $
  */
-public class NoteInfo implements Serializable {
+public class NoteInfoModel implements Serializable {
 
     /**  serialVersionUID */
     private static final long serialVersionUID = -900213777833394934L;
