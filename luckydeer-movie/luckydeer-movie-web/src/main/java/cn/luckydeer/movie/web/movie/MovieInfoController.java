@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.luckydeer.movie.dao.movie.dataobject.MovieInfoDo;
 import cn.luckydeer.movie.manager.movie.MovieInfoManager;
+import cn.luckydeer.note.model.note.NoteInfoModel;
 
 import com.alibaba.fastjson.JSON;
 
@@ -44,7 +45,7 @@ public class MovieInfoController {
     @RequestMapping(value = "/getNoteInfo", produces = { "application/json;charset=UTF-8" })
     @ResponseBody
     public String getNoteInfo(HttpServletRequest request, HttpServletResponse response) {
-        List<MovieInfoDo> list = movieInfoManager.getAllMovieInfo();
+        List<NoteInfoModel> list = movieInfoManager.selectAllNoteInfoModel();
         return JSON.toJSON(list).toString();
     }
 
