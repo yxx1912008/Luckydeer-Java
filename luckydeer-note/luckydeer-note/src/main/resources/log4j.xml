@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- Log4j配置文件 /windata/ tomcat的同级目录。 -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- [公共Appender] 默认 -->
+	<appender name="DEFAULT-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/other-info.log" />
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [公共Appender] 汇总错误 -->
+	<appender name="ERROR-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/common-error.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<param name="threshold" value="error" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+
+	<!-- 日志后续有需要，可以继续添加 -->
+	<!-- 日志很重要，一定要梳理清楚才能方便调试 -->
+	<!-- SOA-LOG层日志文件 -->
+	<appender name="APPENDER-SOA-JAR-LOG" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/soa-jar.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+	<!-- rabbit-mq日志文件 -->
+	<appender name="APPENDER-RABBIT-MQ-LOG" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/rabbitmq.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 只监控登录会话 -->
+	<appender name="APPENDER-SESSION-LOGGER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/session.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+
+	<!-- 只监控测试日志 -->
+	<appender name="APPENDER-TEST-LOGGER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/test.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+	<!-- dal监控日志文件 -->
+	<appender name="APPENDER-LUCKYDEER-DAL-MONITOR" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/dal-monitor.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+
+	<appender name="APPENDER-LUCKYDEER-DAO" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/note-dao.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+
+	<logger name="ytx.org.apache.http" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="TASK-LOG" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+
+	<!-- 其他日志都会往这里打印 -->
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="DEFAULT-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+		<!-- <appender-ref ref="CONSOLE" /> -->
+	</root>
+
+</log4j:configuration>
+

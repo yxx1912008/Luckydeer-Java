@@ -49,8 +49,13 @@
 			<param-value>  classpath*:/springConfig/spring-*.xml,
 	   classpath*:/springConfig/*/spring-*.xml</param-value>
 		</init-param>
+		<!-- 初始化log4j配置 -->
+		<init-param>
+			<param-name>log4j</param-name>
+			<param-value>classpath*:log4j.xml</param-value>
+		</init-param>
 		<!-- 启动顺序 -->
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>0</load-on-startup>
 	</servlet>
 	<!-- 拦截设置 -->
 	<servlet-mapping>
