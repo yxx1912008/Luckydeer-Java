@@ -69,16 +69,13 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
      */
     @Override
     public Object get(CachedType cachedType, String key) {
-
         //读取之前进行key校验
         if (validateKey(key)) {
-
             try {
-
+                return cachedMap.get(cachedType.getCode()).get(key);
             } catch (Exception e) {
                 logger.error("Memcached缓存内部存在问题", e);
             }
-
         }
         return null;
     }
