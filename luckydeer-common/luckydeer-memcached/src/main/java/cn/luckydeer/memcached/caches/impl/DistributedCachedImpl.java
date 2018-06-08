@@ -122,8 +122,53 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
         return false;
     }
 
+    /**
+     * 阻塞式分布锁
+     * @see cn.luckydeer.memcached.caches.DistributedCached#block(cn.luckydeer.memcached.enums.CachedType, java.lang.String)
+     */
     @Override
-    public boolean block(CachedType cachedType, String keyMutex) {
+    public boolean block(CachedType cachedType, String key) {
+        //执行时间
+        long excuteTime = 50;
+
+        int sysnchronizedNum = 0;
+
+        final String lockKey = key + mutex;
+
+        if (validateKey(lockKey)) {
+            try {
+                //避免宕机死锁 制定默认锁失效时间
+                while (true) {
+                    OperationFuture<Boolean> flag = cachedMap.get(cachedType.getCode()).add(
+                        lockKey, CachedConstants.LOCK_LOSE_TIME, Boolean.TRUE);
+                    /** 如果 加锁成功,终止循环 返回操作成功  */
+                    if (flag.get().booleanValue()) {
+                        return true;
+                    }
+                    ++sysnchronizedNum;
+                    // 测试用100个并发线程，计算出来的最优时差为睡眠时间==具体方法的执行时间
+                    // 方法执行时间50ms,阻塞sleep(60) 结果 6127ms处理100个并发线程 17:09:32,341 - 17:09:26,214
+                    // 方法执行时间50ms,无睡眠阻塞 结果 5197ms处理100个并发线程 10:25:13,809 - 10:25:08,612(虽然快，对缓存网络频繁调用的压力过大不建议使用)
+                    // 方法执行时间50ms,阻塞sleep(50) 结果 5310ms处理100个并发线程 16:59:07,801 - 16:59:02,491
+                    // 方法执行时间50ms,阻塞sleep(50) 结果 5378ms处理100个并发线程 17:11:58,943 - 17:11:53,565
+                    // 方法执行时间50ms,阻塞sleep(30) 结果 6230ms处理100个并发线程 17:04:11,607 - 17:04:05,377
+                    // 方法执行时间50ms,阻塞sleep(35) 结果 6261ms处理100个并发线程 17:06:05,939 - 17:05:59,678   
+
+                    if (sysnchronizedNum == 1 || (sysnchronizedNum > 0)
+                        && sysnchronizedNum % 5 == 0) {
+                        logger.warn("方法同步次数:" + sysnchronizedNum + ",key=" + key);
+                    }
+
+                    // 限制最大400ms睡眠
+                    if (sysnchronizedNum >= 30 && excuteTime < 400) {
+                        excuteTime = excuteTime * 2;
+                    }
+                    Thread.sleep(excuteTime);
+                }
+            } catch (Exception e) {
+                logger.error("缓存内部系统异常,锁失败key=" + key, e);
+            }
+        }
         return false;
     }
 
