@@ -80,8 +80,21 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
         return null;
     }
 
+    /**
+     * 从Memcached缓存中删除一条数据
+     * @see cn.luckydeer.memcached.caches.DistributedCached#remove(cn.luckydeer.memcached.enums.CachedType, java.lang.String)
+     */
     @Override
     public boolean remove(CachedType cachedType, String key) {
+        if (validateKey(key)) {
+            try {
+                cachedMap.get(cachedType.getCode()).delete(key);
+                return true;
+            } catch (Exception e) {
+                logger.error("从Memcached缓存中删除数据失败:key=" + key, e);
+                return false;
+            }
+        }
         return false;
     }
 
