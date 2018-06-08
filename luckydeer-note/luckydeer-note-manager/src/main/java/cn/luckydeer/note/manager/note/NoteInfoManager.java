@@ -3,6 +3,8 @@ package cn.luckydeer.note.manager.note;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import cn.luckydeer.movie.model.model.MovieInfoModel;
 import cn.luckydeer.note.dao.note.dataInterface.INoteInfoDao;
 import cn.luckydeer.note.dao.note.dataobject.NoteInfoDo;
@@ -21,6 +23,9 @@ public class NoteInfoManager {
 
     private MovieInfoServiceClient movieInfoServiceClient;
 
+    //打开日志记录
+    private Logger                 logger = Logger.getLogger("APPENDER-LUCKYDEER-DAL-MANAGER");
+
     /**
      * 
      * 注解：查询所有笔记信息
@@ -28,6 +33,7 @@ public class NoteInfoManager {
      * @author yuanxx @date 2018年6月6日
      */
     public List<NoteInfoDo> selectAll() {
+        logger.info("测试增加一条日志信息，此日志来自:" + NoteInfoManager.class);
         return noteInfoDao.selectAll();
     }
 

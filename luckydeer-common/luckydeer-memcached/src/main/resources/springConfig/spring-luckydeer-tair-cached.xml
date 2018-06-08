@@ -10,7 +10,7 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd"
     default-autowire="byName">  
     
-    <!-- 会员分布式cache -->
+    <!-- 分布式cache -->
     <bean id="customerMemcached" class="net.spy.memcached.spring.MemcachedClientFactoryBean">
          <!-- value="host1:11211,host2:11212" -->
         <property name="servers" value="${customer.cached.ip}:${customer.cached.port},${customer2.cached.ip}:${customer2.cached.port}"/>  
