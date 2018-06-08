@@ -2,8 +2,10 @@ package cn.luckydeer.memcached.caches.impl;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
 
 import net.spy.memcached.MemcachedClient;
+import net.spy.memcached.internal.OperationFuture;
 
 import org.apache.log4j.Logger;
 
@@ -98,8 +100,25 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
         return false;
     }
 
+    /**
+     * 非阻塞式的分布锁
+     * @see cn.luckydeer.memcached.caches.DistributedCached#nonblock(cn.luckydeer.memcached.enums.CachedType, java.lang.String)
+     */
     @Override
-    public boolean nonblock(CachedType cachedType, String keyMutex) {
+    public boolean nonblock(CachedType cachedType, String key) {
+        final String lockKey = key + mutex;
+        if (validateKey(lockKey)) {
+            try {
+                //避免宕机死锁，给予  锁失效时间
+                OperationFuture<Boolean> flag = cachedMap.get(cachedType.getCode()).add(lockKey,
+                    CachedConstants.LOCK_LOSE_TIME, Boolean.TRUE);
+                return flag.get().booleanValue();
+            } catch (InterruptedException e) {
+                logger.error("缓存系统内部异常，锁失败:key=" + key, e);
+            } catch (ExecutionException e) {
+                logger.error("缓存系统内部异常，锁失败:key=" + key, e);
+            }
+        }
         return false;
     }
 
