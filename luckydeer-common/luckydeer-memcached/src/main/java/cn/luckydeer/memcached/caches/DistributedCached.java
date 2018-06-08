@@ -52,7 +52,7 @@ public interface DistributedCached {
      * @return
      * @author panwuhai @date 2017年6月27日
      */
-    boolean nonblock(CachedType cachedType, String keyMutex);
+    boolean nonblock(CachedType cachedType, String key);
 
     /**
      * 注解：阻塞式分布式同步锁
