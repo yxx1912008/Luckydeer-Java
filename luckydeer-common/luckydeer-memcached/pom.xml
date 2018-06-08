@@ -10,4 +10,14 @@
 	<version>20180608-memcached</version>
 	<name>luckydeer-memcached</name>
 	<description>Memcached公共模块</description>
+
+
+	<!-- TODO memcached缓存支持   暂时先放在这里-->
+	<dependencies>
+		<dependency>
+			<groupId>net.spy</groupId>
+			<artifactId>spymemcached</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+	</dependencies>
 </project>
