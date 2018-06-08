@@ -102,6 +102,12 @@
 	</logger>
 
 
+	<logger name="LUCKYDEER-NOTE-MANAGER" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="APPENDER-LUCKYDEER-DAL-MANAGER" />
+	</logger>
+
+
 	<!-- Manager层 监控日志文件 -->
 	<appender name="APPENDER-LUCKYDEER-DAL-MANAGER" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="file" value="/windata/logs/luckydeer/dal-manager.log" />

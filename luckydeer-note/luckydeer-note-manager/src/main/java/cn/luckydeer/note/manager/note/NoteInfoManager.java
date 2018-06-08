@@ -24,7 +24,7 @@ public class NoteInfoManager {
     private MovieInfoServiceClient movieInfoServiceClient;
 
     //打开日志记录
-    private Logger                 logger = Logger.getLogger("APPENDER-LUCKYDEER-DAL-MANAGER");
+    private Logger                 logger = Logger.getLogger("LUCKYDEER-NOTE-MANAGER");
 
     /**
      * 
