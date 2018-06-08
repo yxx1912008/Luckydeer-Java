@@ -8,7 +8,7 @@
 	<dubbo:application name="movieInfoService" />
 
 	<!-- 广播地址 端口 -->
-	<dubbo:registry address="zookeeper://192.168.18.124:2181" />
+	<dubbo:registry address="${movie.service.url}" />
 
 	<dubbo:protocol name="dubbo" port="20880" />
 	<!-- 开放的服务 接口 -->
