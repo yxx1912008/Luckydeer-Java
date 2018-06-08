@@ -7,7 +7,7 @@
 		<version>20180605</version>
 	</parent>
 	<artifactId>luckydeer-memcached</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>20180608-memcached</version>
 	<name>luckydeer-memcached</name>
 	<description>Memcached公共模块</description>
 </project>
