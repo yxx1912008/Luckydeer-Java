@@ -63,8 +63,23 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
         return false;
     }
 
+    /**
+     * 读取存储在Memcached缓存里的数据
+     * @see cn.luckydeer.memcached.caches.DistributedCached#get(cn.luckydeer.memcached.enums.CachedType, java.lang.String)
+     */
     @Override
     public Object get(CachedType cachedType, String key) {
+
+        //读取之前进行key校验
+        if (validateKey(key)) {
+
+            try {
+
+            } catch (Exception e) {
+                logger.error("Memcached缓存内部存在问题", e);
+            }
+
+        }
         return null;
     }
 
@@ -91,6 +106,10 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
     @Override
     public boolean cleanAll() {
         return false;
+    }
+
+    public void setCachedMap(Map<String, MemcachedClient> cachedMap) {
+        this.cachedMap = cachedMap;
     }
 
 }
