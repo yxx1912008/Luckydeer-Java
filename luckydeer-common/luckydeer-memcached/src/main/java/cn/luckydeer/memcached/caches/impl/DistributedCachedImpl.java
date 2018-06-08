@@ -8,6 +8,9 @@ import net.spy.memcached.MemcachedClient;
 import net.spy.memcached.internal.OperationFuture;
 
 import org.apache.log4j.Logger;
+import org.springframework.util.CollectionUtils;
+
+import com.alibaba.fastjson.JSON;
 
 import cn.luckydeer.memcached.caches.DistributedCached;
 import cn.luckydeer.memcached.caches.parent.AbstractTairCached;
@@ -193,9 +196,19 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
         return false;
     }
 
+    /**
+     * 清理所有缓存 一般不要轻易使用
+     * @see cn.luckydeer.memcached.caches.DistributedCached#cleanAll()
+     */
     @Override
     public boolean cleanAll() {
-        return false;
+        if (!CollectionUtils.isEmpty(cachedMap)) {
+            for (Map.Entry<String, MemcachedClient> entry : cachedMap.entrySet()) {
+                OperationFuture<Boolean> flag = entry.getValue().flush();
+                logger.info(flag.getStatus() + ":" + JSON.toJSONString(flag));
+            }
+        }
+        return true;
     }
 
     public void setCachedMap(Map<String, MemcachedClient> cachedMap) {
