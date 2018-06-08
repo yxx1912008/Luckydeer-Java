@@ -172,8 +172,24 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
         return false;
     }
 
+    /**
+     * 解锁
+     * @see cn.luckydeer.memcached.caches.DistributedCached#unlock(cn.luckydeer.memcached.enums.CachedType, java.lang.String)
+     */
     @Override
-    public boolean unlock(CachedType cachedType, String keyMutex) {
+    public boolean unlock(CachedType cachedType, String key) {
+        final String lockKey = key + mutex;
+        if (validateKey(lockKey)) {
+            try {
+                OperationFuture<Boolean> future = cachedMap.get(cachedType.getCode()).delete(
+                    lockKey);
+                return future.get().booleanValue();
+            } catch (InterruptedException e) {
+                logger.error("缓存内部系统异常,解锁失败key=" + key, e);
+            } catch (ExecutionException e) {
+                logger.error("缓存内部系统异常,解锁失败key=" + key, e);
+            }
+        }
         return false;
     }
 
