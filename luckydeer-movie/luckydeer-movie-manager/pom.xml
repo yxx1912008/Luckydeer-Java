@@ -25,6 +25,12 @@
 			<version>20180605-intergration</version>
 		</dependency>
 
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-memcached</artifactId>
+			<version>20180608-memcached</version>
+		</dependency>
+
 	</dependencies>
 
 </project>
