@@ -102,6 +102,17 @@
 	</logger>
 
 
+	<!-- Manager层 监控日志文件 -->
+	<appender name="APPENDER-LUCKYDEER-DAL-MANAGER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/windata/logs/luckydeer/dal-manager.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p (%c:%L)- %m%n" />
+		</layout>
+	</appender>
+
+
 	<!-- 其他日志都会往这里打印 -->
 	<root>
 		<level value="INFO" />
