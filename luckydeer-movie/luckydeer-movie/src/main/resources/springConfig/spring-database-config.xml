@@ -34,7 +34,8 @@
         <property name="ignoreUnresolvablePlaceholders" value="true" /> 
         <property name="locations">
            <list>
-           	   <value>file:${catalina.home}/db/luckydeer-movie-db.properties</value>          	   
+           	   <value>file:${catalina.home}/db/luckydeer-movie-db.properties</value>  
+           	   <value>file:${catalina.home}/domain/luckydeerDomain.properties</value>        	   
            </list>
         </property>  
     </bean>
