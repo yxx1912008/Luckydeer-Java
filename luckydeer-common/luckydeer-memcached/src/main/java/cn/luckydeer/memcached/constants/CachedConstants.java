@@ -9,6 +9,9 @@ package cn.luckydeer.memcached.constants;
 public interface CachedConstants {
 
     /** 最大缓存时间   当前设置为30天 */
-    int MAX_CACHE_TIME = 60 * 60 * 24 * 30;
+    int MAX_CACHE_TIME     = 60 * 60 * 24 * 30;
+
+    /** 默认超时时间  当前设置为24小时 */
+    int CACHE_TIME_DEFAULT = 24 * 60 * 60;
 
 }
