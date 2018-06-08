@@ -107,6 +107,11 @@
 		<appender-ref ref="APPENDER-LUCKYDEER-DAL-MANAGER" />
 	</logger>
 
+	<logger name="SOA-JAR-LOG" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="APPENDER-SOA-JAR-LOG" />
+	</logger>
+
 
 	<!-- Manager层 监控日志文件 -->
 	<appender name="APPENDER-LUCKYDEER-DAL-MANAGER" class="org.apache.log4j.DailyRollingFileAppender">
