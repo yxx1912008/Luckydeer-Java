@@ -80,7 +80,7 @@
 	    <property name="useNagleAlgorithm" value="false" /> 
     </bean>
         
-    <bean id="distributedCached" class="com.acaomei.memcached.caches.impl.DistributedCachedImpl" >
+    <bean id="distributedCached" class="cn.luckydeer.memcached.caches.impl.DistributedCachedImpl" >
        <property name="cachedMap"> 
 	        <map>
 	            <entry key="USER_SESSION">

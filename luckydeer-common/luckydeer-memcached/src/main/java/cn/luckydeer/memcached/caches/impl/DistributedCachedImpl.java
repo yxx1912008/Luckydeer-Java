@@ -7,10 +7,9 @@ import net.spy.memcached.MemcachedClient;
 
 import org.apache.log4j.Logger;
 
-import com.alibaba.dubbo.cache.Cache;
-
 import cn.luckydeer.memcached.caches.DistributedCached;
 import cn.luckydeer.memcached.caches.parent.AbstractTairCached;
+import cn.luckydeer.memcached.constants.CachedConstants;
 import cn.luckydeer.memcached.enums.CachedType;
 
 /**
@@ -37,13 +36,13 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
     private Map<String, MemcachedClient> cachedMap = new ConcurrentHashMap<String, MemcachedClient>();
 
     /**
-     * 默认将数据缓存一天
+     * 存储缓存数据  默认缓存 默认时间
      * @see cn.luckydeer.memcached.caches.DistributedCached#put(com.alibaba.dubbo.cache.Cache, java.lang.String, java.lang.Object)
      */
     @Override
-    public boolean put(Cache cachedType, String key, Object value) {
+    public boolean put(CachedType cachedType, String key, Object value) {
         //指定超时时间默认为 24小时
-        return put(cachedType, key, 24 * 60 * 60, value);
+        return put(cachedType, key, CachedConstants.MAX_CACHE_TIME, value);
     }
 
     /**
@@ -52,6 +51,15 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
      */
     @Override
     public boolean put(CachedType cachedType, String key, int exp, Object value) {
+        //校验 Key、Value、超时时间，只有当三者都为 True 才能储存
+        if (validateKey(key) && validateValue(value) && validateExp(exp)) {
+            try {
+                /** ConcurrentHashMap 里面存储 MemcachedClient对象 通过缓存类型进行区分  */
+                cachedMap.get(cachedType.getCode()).set(key, exp, value);
+            } catch (Exception e) {
+                logger.error("内部缓存系统异常，保存失败:key=" + key, e);
+            }
+        }
         return false;
     }
 

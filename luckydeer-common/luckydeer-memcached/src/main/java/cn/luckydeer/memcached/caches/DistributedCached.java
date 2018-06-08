@@ -2,8 +2,6 @@ package cn.luckydeer.memcached.caches;
 
 import cn.luckydeer.memcached.enums.CachedType;
 
-import com.alibaba.dubbo.cache.Cache;
-
 /**
  * 
  * Memcached 分布式缓存接口
@@ -19,7 +17,7 @@ public interface DistributedCached {
      * @param value
      * @return
      */
-    boolean put(Cache cachedType, String key, Object value);
+    boolean put(CachedType cachedType, String key, Object value);
 
     /**
      * @param cachedType  缓存类型
