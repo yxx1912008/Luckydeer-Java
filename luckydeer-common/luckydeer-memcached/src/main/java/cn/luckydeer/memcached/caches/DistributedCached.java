@@ -13,7 +13,7 @@ import com.alibaba.dubbo.cache.Cache;
 public interface DistributedCached {
 
     /**
-     * 默认保存24小时
+     * 默认保存24小时 一天
      * @param cachedType  缓存类型
      * @param key
      * @param value
