@@ -14,4 +14,7 @@ public interface CachedConstants {
     /** 默认超时时间  当前设置为24小时 */
     int CACHE_TIME_DEFAULT = 24 * 60 * 60;
 
+    /** 默认锁失效时间 */
+    int LOCK_LOSE_TIME     = 300;
+
 }
