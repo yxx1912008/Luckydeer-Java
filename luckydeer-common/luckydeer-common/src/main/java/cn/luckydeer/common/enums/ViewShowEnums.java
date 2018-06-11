@@ -45,6 +45,25 @@ public enum ViewShowEnums {
         }
     }
 
+    /**
+     * 
+     * 注解：根据Code获取枚举
+     * @param code
+     * @return
+     * @author yuanxx @date 2018年6月11日
+     */
+    public static ViewShowEnums getEnumsByCode(Integer code) {
+
+        if (null != code) {
+            for (ViewShowEnums activitie : ViewShowEnums.values()) {
+                if (code.intValue() == activitie.getCode()) {
+                    return activitie;
+                }
+            }
+        }
+        return null;
+    }
+
     private ViewShowEnums(int code, String detail) {
         this.code = code;
         this.detail = detail;
