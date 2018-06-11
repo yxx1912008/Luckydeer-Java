@@ -9,4 +9,11 @@
 	<artifactId>luckydeer-baseaction</artifactId>
 	<version>20180605-baseaction</version>
 	<name>luckydeer-baseaction</name>
+	<dependencies>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-manager</artifactId>
+			<version>20180605-manager</version>
+		</dependency>
+	</dependencies>
 </project>

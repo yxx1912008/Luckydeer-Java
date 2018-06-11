@@ -9,4 +9,11 @@
 	<artifactId>luckydeer-manager</artifactId>
 	<version>20180605-manager</version>
 	<name>luckydeer-manager</name>
+	<dependencies>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-dao</artifactId>
+			<version>20180605-dao</version>
+		</dependency>
+	</dependencies>
 </project>

@@ -9,4 +9,11 @@
 	<artifactId>luckydeer-dao</artifactId>
 	<version>20180605-dao</version>
 	<name>luckydeer-dao</name>
+	<dependencies>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-member-common</artifactId>
+			<version>20180605-common</version>
+		</dependency>
+	</dependencies>
 </project>
