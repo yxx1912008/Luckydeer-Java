@@ -22,12 +22,26 @@ public enum ViewShowEnums {
      * @author yuanxx @date 2018年6月11日
      */
     public boolean isError() {
-
         switch (this) {
             case INFO_SUCCESS:
                 return false;
             default:
                 return true;
+        }
+    }
+
+    /**
+     * 
+     * 注解：操作是否成功
+     * @return
+     * @author yuanxx @date 2018年6月11日
+     */
+    public boolean isSuccess() {
+        switch (this) {
+            case INFO_SUCCESS:
+                return true;
+            default:
+                return false;
         }
     }
 
