@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import cn.luckydeer.memcached.caches.DistributedCached;
+import cn.luckydeer.memcached.enums.CachedType;
 import cn.luckydeer.movie.model.model.MovieInfoModel;
 import cn.luckydeer.note.dao.note.dataInterface.INoteInfoDao;
 import cn.luckydeer.note.dao.note.dataobject.NoteInfoDo;
@@ -22,6 +24,8 @@ public class NoteInfoManager {
     private INoteInfoDao           noteInfoDao;
 
     private MovieInfoServiceClient movieInfoServiceClient;
+
+    private DistributedCached      distributedCached;
 
     //打开日志记录
     private Logger                 logger = Logger.getLogger("LUCKYDEER-NOTE-MANAGER");
@@ -81,12 +85,33 @@ public class NoteInfoManager {
         return noteInfoModel;
     }
 
+    /**
+     * 
+     * 注解：测试Memcached
+     * @author yuanxx @date 2018年6月11日
+     */
+    public void testMemcached() {
+        CachedType cachedType = CachedType.STATISTICS;
+        String key = "MAY_ACTIVITY_AAA";
+        String nameString = "欢迎光临";
+        Boolean putFlag = distributedCached.put(cachedType, key, nameString);
+        logger.info("存储测试结果:" + putFlag);
+        Object result = distributedCached.get(cachedType, key);
+        if (null != result) {
+            logger.info("测试读取数据结果:" + (String) result);
+        }
+    }
+
     public void setNoteInfoDao(INoteInfoDao noteInfoDao) {
         this.noteInfoDao = noteInfoDao;
     }
 
     public void setMovieInfoServiceClient(MovieInfoServiceClient movieInfoServiceClient) {
         this.movieInfoServiceClient = movieInfoServiceClient;
+    }
+
+    public void setDistributedCached(DistributedCached distributedCached) {
+        this.distributedCached = distributedCached;
     }
 
 }

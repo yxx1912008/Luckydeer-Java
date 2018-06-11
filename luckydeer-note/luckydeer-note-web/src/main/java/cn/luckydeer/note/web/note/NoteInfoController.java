@@ -27,6 +27,12 @@ public class NoteInfoController {
     @Autowired
     private NoteInfoManager noteInfoManager;
 
+    /**
+     * 
+     * 注解：测试本地查询数据库
+     * @return
+     * @author yuanxx @date 2018年6月11日
+     */
     @RequestMapping(value = "/selectAll", produces = { "application/json;charset=UTF-8" })
     @ResponseBody
     public String selectAll() {
@@ -38,7 +44,13 @@ public class NoteInfoController {
         }
         return jsonString;
     }
-    
+
+    /**
+     * 
+     * 注解：测试查询远程服务数据库
+     * @return
+     * @author yuanxx @date 2018年6月11日
+     */
     @RequestMapping(value = "/selectAllFromRemote", produces = { "application/json;charset=UTF-8" })
     @ResponseBody
     public String selectAllFromRemote() {
@@ -50,6 +62,18 @@ public class NoteInfoController {
         }
         return jsonString;
     }
-    
 
+    /**
+     * 
+     * 注解：测试查询 Memcached数据存储
+     * @return
+     * @author yuanxx @date 2018年6月11日
+     */
+    @RequestMapping(value = "/selectFromMemcched", produces = { "application/json;charset=UTF-8" })
+    @ResponseBody
+    public String selectFromMemcched() {
+        String jsonString = "查询成功";
+        noteInfoManager.testMemcached();
+        return JSON.toJSON(jsonString).toString();
+    }
 }
