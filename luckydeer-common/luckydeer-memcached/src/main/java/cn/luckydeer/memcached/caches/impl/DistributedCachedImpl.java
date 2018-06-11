@@ -82,6 +82,7 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
                 return cachedMap.get(cachedType.getCode()).get(key);
             } catch (Exception e) {
                 logger.error("Memcached缓存内部存在问题", e);
+                return null;
             }
         }
         return null;
