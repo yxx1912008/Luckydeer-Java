@@ -61,8 +61,10 @@ public class DistributedCachedImpl extends AbstractTairCached implements Distrib
             try {
                 /** ConcurrentHashMap 里面存储 MemcachedClient对象 通过缓存类型进行区分  */
                 cachedMap.get(cachedType.getCode()).set(key, exp, value);
+                return true;
             } catch (Exception e) {
                 logger.error("内部缓存系统异常，保存失败:key=" + key, e);
+                return false;
             }
         }
         return false;
