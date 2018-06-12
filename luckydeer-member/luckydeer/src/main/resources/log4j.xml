@@ -91,10 +91,6 @@
 	</appender>
 
 
-	<logger name="ytx.org.apache.http" additivity="false">
-		<level value="INFO" />
-		<appender-ref ref="ERROR-APPENDER" />
-	</logger>
 
 	<logger name="TASK-LOG" additivity="false">
 		<level value="INFO" />
@@ -110,6 +106,11 @@
 	<logger name="SOA-JAR-LOG" additivity="false">
 		<level value="INFO" />
 		<appender-ref ref="APPENDER-SOA-JAR-LOG" />
+	</logger>
+
+	<logger name="DAL-MONITOR-LOGGER">
+		<level value="INFO"></level>
+		<appender-ref ref="APPENDER-LUCKYDEER-DAL-MONITOR" />
 	</logger>
 
 
