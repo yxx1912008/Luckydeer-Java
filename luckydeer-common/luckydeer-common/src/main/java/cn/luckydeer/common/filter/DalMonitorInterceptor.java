@@ -54,7 +54,6 @@ public class DalMonitorInterceptor implements MethodInterceptor {
         String severity = "[MIN],";
 
         boolean hasError = false;
-        dalMonitorLogger.info("À¹½Ø¿ªÊ¼:" + method);
         try {
             return invocation.proceed();
         } catch (Throwable e) {
