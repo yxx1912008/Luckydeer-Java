@@ -7,14 +7,19 @@
 		<version>20180605</version>
 	</parent>
 	<artifactId>luckydeer-member-common</artifactId>
-  <name>luckydeer-member-common</name>
-  <version>20180605-common</version>
-  
-  <dependencies>
-  	<dependency>
-  		<groupId>cn.luckydeer</groupId>
-  		<artifactId>luckydeer-model</artifactId>
-  		<version>20180605-model</version>
-  	</dependency>
-  </dependencies>
+	<name>luckydeer-member-common</name>
+	<version>20180605-common</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-model</artifactId>
+			<version>20180605-model</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.luckydeer</groupId>
+			<artifactId>luckydeer-common</artifactId>
+			<version>20180605-main-common</version>
+		</dependency>
+	</dependencies>
 </project>
