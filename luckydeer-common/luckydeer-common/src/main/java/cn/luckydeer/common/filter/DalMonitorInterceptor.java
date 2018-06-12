@@ -2,8 +2,7 @@ package cn.luckydeer.common.filter;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 
 /**
  * 
@@ -16,9 +15,9 @@ import org.apache.commons.logging.LogFactory;
 public class DalMonitorInterceptor implements MethodInterceptor {
 
     /** 最小操作时间 */
-    private final static int minTime          = 500;
+    private final static int    minTime          = 500;
 
-    private final static Log dalMonitorLogger = LogFactory.getLog("DAL-MONITOR-LOGGER");
+    private final static Logger dalMonitorLogger = Logger.getLogger("DAL-MONITOR-LOGGER");
 
     /**
      * 缺省的构造方法.
@@ -33,6 +32,7 @@ public class DalMonitorInterceptor implements MethodInterceptor {
      */
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
+        System.out.println("拦截器起作用");
         /** 获取包名 */
         String packageName = invocation.getMethod().getDeclaringClass().getPackage().getName();
         /** 获取类名  */
