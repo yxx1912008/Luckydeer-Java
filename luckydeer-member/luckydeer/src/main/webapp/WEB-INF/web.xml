@@ -70,7 +70,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>shiroFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>*.wx</url-pattern>
 	</filter-mapping>
 
 	<!-- session 超时时间最多30分钟 -->
