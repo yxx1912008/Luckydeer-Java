@@ -20,8 +20,13 @@ public class WxUserTest extends BaseTest {
     @Autowired
     private IWxUserDao wxUserDao;
 
+    /**
+     * 
+     * 注解：查询所有
+     * @author yuanxx @date 2018年6月12日
+     */
     @Test
-    public void name() {
+    public void selectAll() {
 
         List<WxUserDo> list = wxUserDao.selectAll();
 
