@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.luckydeer.common.enums.ViewShowEnums;
 import cn.luckydeer.common.model.ResponseObj;
+import cn.luckydeer.common.shiro.basecontroller.BaseController;
 import cn.luckydeer.dao.users.daoInterface.IWxUserDao;
 import cn.luckydeer.dao.users.dataobject.WxUserDo;
 
