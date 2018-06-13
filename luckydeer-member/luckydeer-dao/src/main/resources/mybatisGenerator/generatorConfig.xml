@@ -28,12 +28,18 @@
 			targetProject="target" />
 		<!-- 生成DAO的包名和位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="cn.luckydeer.dao.users.daoInterface" implementationPackage="cn.luckydeer.dao.users.daoImpl"
-			targetProject="target" />
+			targetPackage="cn.luckydeer.dao.users.daoInterface"
+			implementationPackage="cn.luckydeer.dao.users.daoImpl" targetProject="target" />
 		<!-- 要生成哪些表 -->
-		<table tableName="wx_user" domainObjectName="WxUserDo"
+	<!-- 	<table tableName="permission" domainObjectName="PermissionDo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+
+		<table tableName="permission" domainObjectName="PermissionDo"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
+
 	</context>
 </generatorConfiguration>

@@ -14,6 +14,10 @@
 		<property name="namespace" value="cn.luckydeer.dao.users.daoImpl.WxUserDao." />
 	</bean>
 
-
+	<bean id="permissionDao" class="cn.luckydeer.dao.users.daoImpl.PermissionDao"
+		parent="luckyDeerAbstractDAO">
+		<property name="namespace"
+			value="cn.luckydeer.dao.users.daoImpl.PermissionDao." />
+	</bean>
 
 </beans>
