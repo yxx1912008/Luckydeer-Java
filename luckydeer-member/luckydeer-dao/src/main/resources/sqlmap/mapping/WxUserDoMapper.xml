@@ -23,6 +23,10 @@
 		from wx_user
 	</select>
 
-
-
+	<!-- 根据用户OPENID获取用户信息 -->
+	<select id="getWxUserByOpenId" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wx_user where open_id=#{openId,jdbcType=VARCHAR}
+	</select>
 </mapper>

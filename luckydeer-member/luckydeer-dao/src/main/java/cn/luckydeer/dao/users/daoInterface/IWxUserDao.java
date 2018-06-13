@@ -20,4 +20,15 @@ public interface IWxUserDao {
      */
     List<WxUserDo> selectAll();
 
+    /**
+     * 
+     * 注解：根据微信openId查询用户信息
+     * @param openId
+     * @return
+     * @author yuanxx @date 2018年6月13日
+     */
+    WxUserDo getWxUserByOpenId(String openId);
+
+    
+    
 }

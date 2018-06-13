@@ -1,5 +1,7 @@
 package cn.luckydeer.member.test.wxuser;
 
+import static org.junit.Assert.*;
+
 import java.util.List;
 
 import org.junit.Test;
@@ -22,7 +24,7 @@ public class WxUserTest extends BaseTest {
 
     /**
      * 
-     * 注解：查询所有
+     * 测试：查询所有
      * @author yuanxx @date 2018年6月12日
      */
     @Test
@@ -33,7 +35,19 @@ public class WxUserTest extends BaseTest {
         for (WxUserDo wxUser : list) {
             System.out.println(wxUser.getNickName());
         }
+    }
 
+    /**
+     * 
+     * 测试：通过openId查询用户信息
+     * @throws Exception
+     * @author yuanxx @date 2018年6月13日
+     */
+    @Test
+    public void getWxUserByOpenId() throws Exception {
+        String openId = "qqq";
+        WxUserDo obj = wxUserDao.getWxUserByOpenId(openId);
+        System.out.println(obj.getNickName());
     }
 
 }
