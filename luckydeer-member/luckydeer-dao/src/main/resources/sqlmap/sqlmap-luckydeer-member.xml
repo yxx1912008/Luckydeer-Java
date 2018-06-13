@@ -29,6 +29,9 @@
 
 	<!-- 数据库操作映射文件 -->
 	<mappers>
+		<!-- 用户表 -->
 		<mapper resource="sqlmap/mapping/WxUserDoMapper.xml" />
+		<!-- 用户权限表 -->
+		<mapper resource="sqlmap/mapping/PermissionDoMapper.xml" />
 	</mappers>
 </configuration>
